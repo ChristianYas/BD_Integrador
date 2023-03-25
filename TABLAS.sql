@@ -27,12 +27,12 @@ CREATE TABLE Cliente(
 CREATE TABLE Producto(
 	
     idProducto int key auto_increment,
-    titulo varchar(45),
+    titulo varchar(100),
     precio float,
     condicion varchar(45),
     plataforma varchar(45),
     garantia varchar(45),
-    descripcion varchar(45),
+    descripcion varchar(1000),
     publicador varchar(45),
     lanzamiento varchar(45)
 );
@@ -70,7 +70,7 @@ CREATE TABLE Compra(
 CREATE TABLE VideoJuego(
 	
     idVideoJuego int key auto_increment,
-    categoria varchar(45),
+    desarrollado varchar(45),
     clasificacion varchar(45),
     genero varchar(45),
     trailer varchar(50),
@@ -101,10 +101,10 @@ CREATE TABLE control(
 CREATE TABLE Consola(
 
 	idConsola int key auto_increment,
-    memoria varchar(45),
+    almacenamiento varchar(45),
     control boolean,
     resolucion varchar(45),
-    capacidad varchar(45),
+    ram varchar(45),
     tipoDeMemoria varchar(45),
     idProducto int,
     FOREIGN KEY (idProducto) REFERENCES Producto(idProducto)

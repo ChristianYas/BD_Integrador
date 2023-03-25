@@ -39,4 +39,21 @@ BEGIN
     WHERE nombreUsuario = username AND contrasenia = password;
 END $$
 DELIMITER ;
+-- ------------------------------------------
+
+
+
+-- -------------------ADD SHOPPING CAR ---------------------------
+DELIMITER $$
+CREATE PROCEDURE InsertarCarrito(
+    IN fecha varchar(45),
+    IN idCliente INT,
+    IN idProducto INT
+)
+BEGIN
+    INSERT INTO carrito (fecha, idCliente, idProducto)
+    VALUES (fecha, idCliente, idProducto);
+END $$
+DELIMITER ;
+
 

@@ -4,7 +4,7 @@
 
 -- -----------------VISTA VIDEOJUEGO-----------------------
 
-ALTER VIEW vista_videoJuego AS
+CREATE VIEW vista_videoJuego AS
 SELECT 
 	vj.idProducto, p.titulo, p.precio, p.condicion, p.plataforma, p.garantia, p.descripcion, p.publicador, p.lanzamiento, 
      vj.idVideoJuego, vj.desarrollado, vj.clasificacion, vj.genero, vj.trailer
@@ -16,7 +16,7 @@ INNER JOIN Producto p ON vj.idProducto = p.idProducto;
 CREATE VIEW vista_control AS
 SELECT 
 	c.idProducto, p.titulo, p.precio, p.condicion, p.plataforma, p.garantia, p.descripcion, p.publicador, p.lanzamiento, 
-    c.inalambrico, c.color, c.conectoresDeEntrada, c.vibracion, c.bluetooth
+    c.idControl, c.inalambrico, c.color, c.conectoresDeEntrada, c.vibracion, c.bluetooth
 FROM control c 
 INNER JOIN Producto p ON c.idProducto = p.idProducto;
 
@@ -25,7 +25,7 @@ INNER JOIN Producto p ON c.idProducto = p.idProducto;
 CREATE VIEW vista_consola AS
 SELECT 
 	c.idProducto, p.titulo, p.precio, p.condicion, p.plataforma, p.garantia, p.descripcion, p.publicador, p.lanzamiento, 
-    c.memoria, c.control, c.resolucion, c.capacidad, c.tipoDeMemoria
+    c.idConsola, c.almacenamiento, c.control, c.resolucion, c.ram, c.tipoDeMemoria
 FROM consola c 
 INNER JOIN Producto p ON c.idProducto = p.idProducto;
 
@@ -35,9 +35,19 @@ INNER JOIN Producto p ON c.idProducto = p.idProducto;
 CREATE VIEW vista_accesorio AS
 SELECT 
 	a.idProducto, p.titulo, p.precio, p.condicion, p.plataforma, p.garantia, p.descripcion, p.publicador, p.lanzamiento, 
-    a.material
+    a.idAccesorio, a.material
 FROM accesorio a 
 INNER JOIN Producto p ON a.idProducto = p.idProducto;
 
 select * from vista_accesorio;
+
+-- ------------------------VISTA CARRITO---------------------------
+
+CREATE TABLE vista_carrito AS
+SELECT 
+	p.idProducto, p.titulo, p.precio, p.condicion, p.plataforma, p.garantia, p.descripcion, p.publicador, p.lanzamiento,
+	c.idCarrito, c.fecha, c.idCliente
+FROM carrito c
+INNER JOIN Producto p ON c.idProducto = p.idProducto;
+	
 
