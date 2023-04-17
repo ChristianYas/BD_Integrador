@@ -58,7 +58,7 @@ CREATE TABLE `carrito` (
   `comprado` tinyint(1) DEFAULT '0',
   `onCar` tinyint(1) DEFAULT '1',
   PRIMARY KEY (`idCarrito`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -67,7 +67,7 @@ CREATE TABLE `carrito` (
 
 LOCK TABLES `carrito` WRITE;
 /*!40000 ALTER TABLE `carrito` DISABLE KEYS */;
-INSERT INTO `carrito` VALUES (3,'01/01/2023',1,5,1,0,0),(4,'01/01/2023',1,2,2,0,0),(5,'01/01/2023',2,1,1,0,1),(6,'01/01/2023',2,2,1,0,1),(7,'01/01/2023',3,5,1,0,1),(8,'01/01/2023',3,3,1,0,1),(9,'01/01/2023',1,3,1,0,1),(13,'4/7/2023',1,1,2,0,0),(14,'4/7/2023',1,11,2,0,1),(15,'4/7/2023',1,6,1,0,0),(16,'4/7/2023',1,10,1,0,1),(17,'4/7/2023',1,4,1,0,0),(18,'4/7/2023',1,5,2,0,0);
+INSERT INTO `carrito` VALUES (3,'01/01/2023',1,5,1,0,0),(4,'01/01/2023',1,2,2,0,0),(5,'01/01/2023',2,1,1,0,0),(6,'01/01/2023',2,2,1,0,1),(7,'01/01/2023',3,5,1,0,1),(8,'01/01/2023',3,3,1,0,1),(9,'01/01/2023',1,3,1,0,0),(13,'4/7/2023',1,1,2,0,0),(14,'4/7/2023',1,11,2,0,0),(15,'4/7/2023',1,6,1,0,0),(16,'4/7/2023',1,10,1,0,0),(17,'4/7/2023',1,4,1,0,0),(18,'4/7/2023',1,5,2,0,0),(19,'4/10/2023',1,1,-3,0,0),(20,'4/10/2023',1,1,1,1,1),(21,'4/10/2023',1,1,1,1,1),(22,'4/10/2023',1,1,-2,1,1),(23,'4/10/2023',1,1,5,0,0),(24,'4/12/2023',1,4,2,0,1),(25,'4/12/2023',2,1,2,0,1),(26,'4/12/2023',2,3,2,0,1),(27,'4/16/2023',1,3,2,0,1),(28,'4/16/2023',1,7,2,0,1);
 /*!40000 ALTER TABLE `carrito` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -94,7 +94,7 @@ CREATE TABLE `cliente` (
   `telefonoCasa` varchar(10) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`idCliente`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -103,7 +103,7 @@ CREATE TABLE `cliente` (
 
 LOCK TABLES `cliente` WRITE;
 /*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
-INSERT INTO `cliente` VALUES (1,'Pedrito','Sola','',50,'Ped','1234','','','','token','4770000000','4770000000','pedro.sola@hotmail.com'),(2,'Xavier','Lopez','',99,'Chabelo','1234','','','','token','4770000000','4770000000','chabelo@hotmail.com'),(3,'Pedro','Sanchez','',30,'MrBeast','1234','','','','token','4770000000','4770000000','mr.beast@hotmail.com'),(4,'Dwyane ','Johnson','',0,'TheRock','1234','','','','token','','',''),(5,'Vin','Gasolina','',0,'Toreto','1234','','','','token','','','');
+INSERT INTO `cliente` VALUES (1,'Pedrito','Sola','',50,'Ped','1234','No null','','','token','4770000000','4770000000','pedro.sola@hotmail.com'),(2,'Xavier','Lopez','',99,'Chabelo','1234','','','','token','4770000000','4770000000','chabelo@hotmail.com'),(3,'Jorge','Vargas','Juarez',10,'Mrbeast','4321','1','2','Mexico','token','12345678','12345678','mrBeast@gmail.com'),(4,'Dwyane ','Johnson','',0,'TheRock','1234','','','','token','','',''),(5,'Vin','Gasolina','',0,'Toreto','1234','','','','token','','',''),(6,'Bojack','Horse Man','',40,'Bojack','1234','','','','token','','','');
 /*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -127,7 +127,7 @@ CREATE TABLE `compra` (
   PRIMARY KEY (`idCompra`),
   KEY `idCarrito` (`idCarrito`),
   CONSTRAINT `compra_ibfk_1` FOREIGN KEY (`idCarrito`) REFERENCES `carrito` (`idCarrito`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -136,7 +136,7 @@ CREATE TABLE `compra` (
 
 LOCK TABLES `compra` WRITE;
 /*!40000 ALTER TABLE `compra` DISABLE KEYS */;
-INSERT INTO `compra` VALUES (2,0,1179,21.12592124938965,-101.6808090209961,NULL,'3/30/2023',1,1),(3,1,7599,21.12592124938965,0,NULL,'4/7/2023',2,3),(4,1,1699,21.20139503479004,-101.68081665039062,NULL,'4/7/2023',1,6),(5,2,1649,21.201396942138672,-101.6808090209961,NULL,'4/7/2023',1,8),(8,1,1699,0,0,NULL,'7/4/2023',1,1),(9,1,1699,21.201400756835938,-101.68080139160156,NULL,'4/7/2023',1,6),(10,1,9499,0,0,3,'4/7/2023',1,5),(11,2,1179,0,0,13,'7/4/2023',1,1),(12,2,1179,0,0,NULL,'7/4/2023',2,1),(13,2,1499,0,0,4,'4/7/2023',1,2),(14,1,15299,0,0,9,'4/7/2023',1,3),(15,1,15299,0,0,9,'4/7/2023',1,3),(16,2,399,0,0,14,'4/7/2023',1,11),(17,1,9499,0,0,3,'4/7/2023',1,5),(18,5,7599,21.201406478881836,-101.6807861328125,NULL,'4/7/2023',1,4);
+INSERT INTO `compra` VALUES (2,0,1179,21.12592124938965,-101.6808090209961,NULL,'3/30/2023',1,1),(3,1,7599,21.12592124938965,0,NULL,'4/7/2023',2,3),(4,1,1699,21.20139503479004,-101.68081665039062,NULL,'4/7/2023',1,6),(5,2,1649,21.201396942138672,-101.6808090209961,NULL,'4/7/2023',1,8),(8,1,1699,0,0,NULL,'7/4/2023',1,1),(9,1,1699,21.201400756835938,-101.68080139160156,NULL,'4/7/2023',1,6),(10,1,9499,0,0,3,'4/7/2023',1,5),(11,2,1179,0,0,13,'7/4/2023',1,1),(12,2,1179,0,0,NULL,'7/4/2023',2,1),(13,2,1499,0,0,4,'4/7/2023',1,2),(14,1,15299,0,0,9,'4/7/2023',1,3),(15,1,15299,0,0,9,'4/7/2023',1,3),(16,2,399,0,0,14,'4/7/2023',1,11),(17,1,9499,0,0,3,'4/7/2023',1,5),(18,5,7599,21.201406478881836,-101.6807861328125,NULL,'4/7/2023',1,4),(19,2,1179,21.063671112060547,-101.5804443359375,NULL,'4/10/2023',1,1),(20,1,0,0,0,20,'4/10/2023',1,1),(21,1,218359.484375,0,0,21,'4/10/2023',1,1),(22,-2,214822.484375,0,0,22,'4/10/2023',1,1),(23,2,1699,21.20138168334961,-101.68083190917969,NULL,'4/12/2023',1,6),(24,2,1699,21.201393127441406,-101.68081665039062,NULL,'4/12/2023',2,6);
 /*!40000 ALTER TABLE `compra` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -256,7 +256,7 @@ CREATE TABLE `producto` (
 
 LOCK TABLES `producto` WRITE;
 /*!40000 ALTER TABLE `producto` DISABLE KEYS */;
-INSERT INTO `producto` VALUES (1,'God Of War 4',1179,'nuevo','PlayStation','1 año','\nKratos vuelve a empezar. Kratos, que vive como un hombre lejos de la sombra de los dioses, se adentrará en la \nsalvaje tierra nórdica junto a \nsu hijo Atreus, y ambos lucharán para completar una misión profundamente personal.\n','SONY','20 de Abril 2018'),(2,'Resident Evil 4 (remake)',1499,'preventa','PlayStation, Xbox','1 año','\nResident Evil 4 es un remake del Resident Evil 4 original del 2005.\n\nSurvival Horror de última generación reimaginado para el año 2023.\n\nResident Evil 4 conserva la esencia del juego original, a la vez que introduce mecánicas de juego actualizadas,\nuna historia reimaginada, e impresionantes gráficos de última generación que lo convierten\nen la experiencia de Survival Horror definitiva en la cual se cruzan la vida y la muerte, el terror y la catarsis.\n','CAMPCOM','24 de Marzo 2023'),(3,'CONSOLA 5 BUNDLE GOD OF WAR RAGNAROK',15299,'nuevo','PlayStation 5','5 años','Únete a Kratos y Atreus en un viaje mítico en busca de respuestas y aliados antes de que Ragnarök llegue. \nCon el telón de fondo de los reinos nórdicos destruidos, sé testigo de la dinámica cambiante de la relación padre-hijo mientras se\n preparan para la guerra.','SONY','30 de Noviembre 2022'),(4,'CONSOLA XBOX SERIES S',7599,'nuevo','XSX','3 años','Disfruta de una velocidad y rendimiento de nueva generación con nuestra biblioteca digital más grande hasta la fecha. \n Disfruta de mundos más dinámicos y tiempos de carga más rápidos, y agrega Xbox Game Pass Ultimate (la suscripción se vende por separado) \n para jugar a títulos nuevos el mismo día de su lanzamiento. Además, disfruta de cientos de juegos de alta calidad.','MICROSOFT','10 de Noviembre 2020'),(5,'PlayStation edición Bundle God of War Ragnarok',9499,'nuevo','PS4','3 años','Disfruta de una PS4 más estilizada y compacta, entrega la energía de juego impresionante que siempre es para los jugadores. \n Tambien, disfruta de colores increíblemente vivos y brillantes con los asombrosos gráficos HDR.\n\nUn 30% más delgada y un 16% más ligera que el modelo de PS4 original.','SONY','16  de Diciembre 2022'),(6,'Control joystick Microsoft Xbox Wireless Series X|S electric volt',1699,'nuevo','Xbox','1 año','\nXbox Wireless Controller – Electric Volt\n\n-Experimente el diseño modernizado del controlador inalámbrico Xbox con superficies esculpidas y geometría refinada para mayor comodidad y control sin esfuerzo durante el juego.\n– Manténgase en el objetivo con agarre texturizado en los gatillos, parachoques y carcasa trasera y con un nuevo D-pad híbrido para una entrada precisa pero familiar.\n– Personaliza la asignación de botones con la aplicación Accesorios de Xbox para personalizar el mando.\n-Conecte cualquier auricular compatible con el conector para auriculares de audio de 3,5 mm.\n-Incluye tecnología Xbox Wireless y Bluetooth® para juegos inalámbricos en consolas compatibles, PC con Windows 10, teléfonos Android e iOS y tabletas.\n\nInformación importante:\n\n-Compatible con ciertos dispositivos y versiones de sistemas operativos. Al','MICROSOFT','8 de Mayo 2021'),(7,'CONTROL XBOX ONE NACON PRO',399,'nuevo','Xbox','2 año','\n\n– Diseño compacto con botones de gran tamaño para mayor comodidad, tiempos de reacción más rápidos y menor fatiga de la mano.\n– Libere audio 3D al instante en cualquier consola Xbox accediendo a Dolby Atmos® para auriculares cuando conecte el controlador.\n– Botones de mapa, ajuste la sensibilidad de la palanca del pulgar, ajuste las zonas muertas de activación y mucho más con una aplicación dedicada que permite opciones de personalización avanzadas.\n– Cableado para reducir la latencia, lo que permite tiempos de reacción más rápidos.\n– Joysticks cóncavos con superficie de alto agarre para proporcionar un control de movimiento mejorado.\n– Cable trenzado de nylon largo de 9.8FT/3M que es muy duradero y ultra flexible.\n– El agarre de alto rendimiento proporciona una comodidad superior y un control preciso.\n– Toma de auriculares de 3,5 mm para funciones de audio y chat (auriculares no incluidos)\n','NANOSTDAD','11 de Abril 2022'),(8,'CONTROL PLAYSTATION 5 DUALSENSE BLUE',1649,'nuevo','Playstation 5','1 año','\nEl control inalámbrico DualSense para PS5 ofrece respuesta háptica inmersiva2, gatillos adaptativos dinámicos y un micrófono integrado, todo en un diseño icónico.\n\nRespuesta háptica\nSiente la respuesta física a tus acciones en el juego con los accionadores dobles que reemplazan a los tradicionales motores de vibración. En tus manos, estas vibraciones dinámicas pueden simular la sensación de todo, desde los entornos hasta el retroceso de diferentes armas.\n\nGatillos adaptativos\nExperimenta la tensión y la fuerza variadas cuando interactúes con los entornos y los equipos del juego. Desde tensar la cuerda de un arco cada vez más hasta pisar los frenos de un automóvil a gran velocidad, siéntete físicamente conectado a tus acciones en la pantalla.\n','SONY','17 de Enero 2022'),(9,'BASE DE CARGA PARA CONTROL PLAYSTATION',499,'nuevo','PlayStation','2 años','\nCarga 2 controles de Playstation 5 al mismo tiempo:\n\nNo esperarás mucho tiempo para jugar tus videojuegos ya que cuenta con dos bases para controles de PlayStation 5 para que puedas cargarlos más rápido. ¡Ahorra tiempo y disfruta de tus videojuegos favoritos con un amigo!\n\nRecarga la batería en 3 horas:\n\nEn tan sólo 3 horas, los dos controles estarán totalmente cargados. Conecta la base de carga mediante USB-C a la consola y en menos de lo que te imaginas estarás jugando de nuevo.\n\n','REDLEMON','27 de enero 2023'),(10,'BASE DE CARGA CONTROL XBOX VOLTEDGE BX40',799,'nuevo','Xbox','2 años','\nEl cargador Xbox Voltedge es un dispositivo diseñado para cargar baterías de controles inalámbricos de Xbox. Este cargador utiliza una tecnología de carga rápida que puede durar hasta 15 horas por batería. El cargador tiene una base compacta y elegante que se conecta alámbricamente. También viene con 4 baterías recargables de alta capacidad que se ajustan perfectamente a los controles inalámbricos de Xbox.\n\nTambién tiene luces indicadoras de estado que muestran cuándo las baterías están completamente cargadas y listas para usar. Además, el cargador también cuenta con un circuito protector para evitar sobre cargas, lo que ayuda a prolongar su vida útil.\n\nEs una excelente opción y confiable para cargar las baterías de tu control inalámbrico de Xbox.\n\n','VOLTEDGE','3 de marzo 2023'),(11,'BASE DE CARGA PARA JOY CON NINTENDO SWITCH',399,'nuevo','Nintendo','1 año','\n\nIncreíble capacidad de carga:\n\nPosee cuatro ranuras para cargar hasta dos pares de Joy-Con simultáneamente. Sólo desliza los controles en los rieles de carga y no detengas la diversión. Utilízalo para jugar con un amigo en tu Nintendo Switch o Modelo OLED.\n\nConexión vía USB:\n\nEs increíblemente fácil de utilizar, introduce el conector USB en el puerto del dock o en un adaptador de corriente, desliza los controles en las ranuras y estarán listos para jugar en un par de horas.\n\nDiseño práctico e innovador:\n\nEl tamaño compacto te permite llevarlo siempre contigo o convertir la sala de juegos en un verdadero espacio gamer. Mantén los Joy-Con con la carga suficiente y ordenados para no perderlos de vista.\n','REDLEMON','27 de febrero 2023');
+INSERT INTO `producto` VALUES (1,'God Of War 4',1179,'nuevo','PlayStation','1 año','\nKratos vuelve a empezar. Kratos, que vive como un hombre lejos de la sombra de los dioses, se adentrará en la \nsalvaje tierra nórdica junto a \nsu hijo Atreus, y ambos lucharán para completar una misión profundamente personal.\n','SONY','20 de Abril 2018'),(2,'Resident Evil 4 (remake)',1499,'preventa','PlayStation, Xbox','1 año','\nResident Evil 4 es un remake del Resident Evil 4 original del 2005.\n\nSurvival Horror de última generación reimaginado para el año 2023.\n\nResident Evil 4 conserva la esencia del juego original, a la vez que introduce mecánicas de juego actualizadas,\nuna historia reimaginada, e impresionantes gráficos de última generación que lo convierten\nen la experiencia de Survival Horror definitiva en la cual se cruzan la vida y la muerte, el terror y la catarsis.\n','CAMPCOM','24 de Marzo 2023'),(3,'CONSOLA 5 BUNDLE GOD OF WAR RAGNAROK',15299,'nuevo','PlayStation 5','5 años','Únete a Kratos y Atreus en un viaje mítico en busca de respuestas y aliados antes de que Ragnarök llegue. \nCon el telón de fondo de los reinos nórdicos destruidos, sé testigo de la dinámica cambiante de la relación padre-hijo mientras se\n preparan para la guerra.','SONY','30 de Noviembre 2022'),(4,'CONSOLA XBOX SERIES S',7599,'nuevo','XSX','3 años','Disfruta de una velocidad y rendimiento de nueva generación con nuestra biblioteca digital más grande hasta la fecha. \n Disfruta de mundos más dinámicos y tiempos de carga más rápidos, y agrega Xbox Game Pass Ultimate (la suscripción se vende por separado) \n para jugar a títulos nuevos el mismo día de su lanzamiento. Además, disfruta de cientos de juegos de alta calidad.','MICROSOFT','10 de Noviembre 2020'),(5,'PlayStation edición Bundle God of War Ragnarok',9499,'nuevo','PS4','3 años','Disfruta de una PS4 más estilizada y compacta, entrega la energía de juego impresionante que siempre es para los jugadores. \n Tambien, disfruta de colores increíblemente vivos y brillantes con los asombrosos gráficos HDR.\n\nUn 30% más delgada y un 16% más ligera que el modelo de PS4 original.','SONY','16  de Diciembre 2022'),(6,'Control joystick Microsoft Xbox Wireless Series X|S electric volt',1699,'nuevo','Xbox','1 año','\nXbox Wireless Controller – Electric Volt\n\n-Experimente el diseño modernizado del controlador inalámbrico Xbox con superficies esculpidas y geometría refinada para mayor comodidad y control sin esfuerzo durante el juego.\n– Manténgase en el objetivo con agarre texturizado en los gatillos, parachoques y carcasa trasera y con un nuevo D-pad híbrido para una entrada precisa pero familiar.\n– Personaliza la asignación de botones con la aplicación Accesorios de Xbox para personalizar el mando.\n-Conecte cualquier auricular compatible con el conector para auriculares de audio de 3,5 mm.\n-Incluye tecnología Xbox Wireless y Bluetooth® para juegos inalámbricos en consolas compatibles, PC con Windows 10, teléfonos Android e iOS y tabletas.\n\nInformación importante:\n\n-Compatible con ciertos dispositivos y versiones de sistemas operativos. Al','MICROSOFT','8 de Mayo 2021'),(7,'CONTROL XBOX ONE NACON PRO',399,'nuevo','Xbox','2 año','\n\n– Diseño compacto con botones de gran tamaño para mayor comodidad, tiempos de reacción más rápidos y menor fatiga de la mano.\n– Libere audio 3D al instante en cualquier consola Xbox accediendo a Dolby Atmos® para auriculares cuando conecte el controlador.\n– Botones de mapa, ajuste la sensibilidad de la palanca del pulgar, ajuste las zonas muertas de activación y mucho más con una aplicación dedicada que permite opciones de personalización avanzadas.\n– Cableado para reducir la latencia, lo que permite tiempos de reacción más rápidos.\n– Joysticks cóncavos con superficie de alto agarre para proporcionar un control de movimiento mejorado.\n– Cable trenzado de nylon largo de 9.8FT/3M que es muy duradero y ultra flexible.\n– El agarre de alto rendimiento proporciona una comodidad superior y un control preciso.\n– Toma de auriculares de 3,5 mm para funciones de audio y chat (auriculares no incluidos)\n','NANOSTDAD','11 de Abril 2022'),(8,'CONTROL PLAYSTATION 5 DUALSENSE BLUE',1649,'nuevo','Playstation 5','1 año','\nEl control inalámbrico DualSense para PS5 ofrece respuesta háptica inmersiva2, gatillos adaptativos dinámicos y un micrófono integrado, todo en un diseño icónico.\n\nRespuesta háptica\nSiente la respuesta física a tus acciones en el juego con los accionadores dobles que reemplazan a los tradicionales motores de vibración. En tus manos, estas vibraciones dinámicas pueden simular la sensación de todo, desde los entornos hasta el retroceso de diferentes armas.\n\nGatillos adaptativos\nExperimenta la tensión y la fuerza variadas cuando interactúes con los entornos y los equipos del juego. Desde tensar la cuerda de un arco cada vez más hasta pisar los frenos de un automóvil a gran velocidad, siéntete físicamente conectado a tus acciones en la pantalla.\n','SONY','17 de Enero 2022'),(9,'BASE DE CARGA PARA CONTROL PLAYSTATION',499,'nuevo','PlayStation','2 años','\nCarga 2 controles de Playstation 5 al mismo tiempo:\n\nNo esperarás mucho tiempo para jugar tus videojuegos ya que cuenta con dos bases para controles de PlayStation 5 para que puedas cargarlos más rápido. ¡Ahorra tiempo y disfruta de tus videojuegos favoritos con un amigo!\n\nRecarga la batería en 3 horas:\n\nEn tan sólo 3 horas, los dos controles estarán totalmente cargados. Conecta la base de carga mediante USB-C a la consola y en menos de lo que te imaginas estarás jugando de nuevo.\n\n','REDLEMON','27 de enero 2023'),(10,'BASE DE CARGA MANDO XBOX VOLTEDGE',799,'nuevo','Xbox','2 años','\nEl cargador Xbox Voltedge es un dispositivo diseñado para cargar baterías de controles inalámbricos de Xbox. Este cargador utiliza una tecnología de carga rápida que puede durar hasta 15 horas por batería. El cargador tiene una base compacta y elegante que se conecta alámbricamente. También viene con 4 baterías recargables de alta capacidad que se ajustan perfectamente a los controles inalámbricos de Xbox.\n\nTambién tiene luces indicadoras de estado que muestran cuándo las baterías están completamente cargadas y listas para usar. Además, el cargador también cuenta con un circuito protector para evitar sobre cargas, lo que ayuda a prolongar su vida útil.\n\nEs una excelente opción y confiable para cargar las baterías de tu control inalámbrico de Xbox.\n\n','VOLTEDGE','3 de marzo 2023'),(11,'BASE DE CARGA PARA JOY NINTENDO SWITCH',399,'nuevo','Nintendo','1 año','\n\nIncreíble capacidad de carga:\n\nPosee cuatro ranuras para cargar hasta dos pares de Joy-Con simultáneamente. Sólo desliza los controles en los rieles de carga y no detengas la diversión. Utilízalo para jugar con un amigo en tu Nintendo Switch o Modelo OLED.\n\nConexión vía USB:\n\nEs increíblemente fácil de utilizar, introduce el conector USB en el puerto del dock o en un adaptador de corriente, desliza los controles en las ranuras y estarán listos para jugar en un par de horas.\n\nDiseño práctico e innovador:\n\nEl tamaño compacto te permite llevarlo siempre contigo o convertir la sala de juegos en un verdadero espacio gamer. Mantén los Joy-Con con la carga suficiente y ordenados para no perderlos de vista.\n','REDLEMON','27 de febrero 2023');
 /*!40000 ALTER TABLE `producto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -391,6 +391,34 @@ SET @saved_cs_client     = @@character_set_client;
 SET character_set_client = @saved_cs_client;
 
 --
+-- Temporary view structure for view `vista_historial`
+--
+
+DROP TABLE IF EXISTS `vista_historial`;
+/*!50001 DROP VIEW IF EXISTS `vista_historial`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `vista_historial` AS SELECT 
+ 1 AS `idCompra`,
+ 1 AS `cantidad`,
+ 1 AS `precioUnitario`,
+ 1 AS `latitud`,
+ 1 AS `longitud`,
+ 1 AS `idCarrito`,
+ 1 AS `fecha`,
+ 1 AS `idCliente`,
+ 1 AS `idProducto`,
+ 1 AS `titulo`,
+ 1 AS `precio`,
+ 1 AS `condicion`,
+ 1 AS `plataforma`,
+ 1 AS `garantia`,
+ 1 AS `descripcion`,
+ 1 AS `publicador`,
+ 1 AS `lanzamiento`*/;
+SET character_set_client = @saved_cs_client;
+
+--
 -- Temporary view structure for view `vista_videojuego`
 --
 
@@ -488,6 +516,24 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = @saved_col_connection */;
 
 --
+-- Final view structure for view `vista_historial`
+--
+
+/*!50001 DROP VIEW IF EXISTS `vista_historial`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `vista_historial` AS select `c`.`idCompra` AS `idCompra`,`c`.`cantidad` AS `cantidad`,`c`.`precioUnitario` AS `precioUnitario`,`c`.`latitud` AS `latitud`,`c`.`longitud` AS `longitud`,`c`.`idCarrito` AS `idCarrito`,`c`.`fecha` AS `fecha`,`c`.`idCliente` AS `idCliente`,`p`.`idProducto` AS `idProducto`,`p`.`titulo` AS `titulo`,`p`.`precio` AS `precio`,`p`.`condicion` AS `condicion`,`p`.`plataforma` AS `plataforma`,`p`.`garantia` AS `garantia`,`p`.`descripcion` AS `descripcion`,`p`.`publicador` AS `publicador`,`p`.`lanzamiento` AS `lanzamiento` from (`compra` `c` join `producto` `p` on((`c`.`idProducto` = `p`.`idProducto`))) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
 -- Final view structure for view `vista_videojuego`
 --
 
@@ -514,4 +560,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-04-09 12:04:25
+-- Dump completed on 2023-04-17  7:01:50
