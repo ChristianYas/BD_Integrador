@@ -2,7 +2,7 @@
 use games;
 -- -----------------PROCEDURE-----------------------
 
-CALL insertClient("admin", "admin", "admin", 21, "admin", "1234", "mision de independencia", "valle de torres", "México", "vacio");
+DROP PROCEDURE insertClient;
 
 -- -----------------INSERTAR CLIENTE----------------------
 
@@ -17,12 +17,16 @@ CREATE PROCEDURE insertClient(
 								calle varchar(45),
 								colonia varchar(45),
 								pais varchar(45),
-								token varchar(45) 
-                                )
+								token varchar(45),
+                                telefonoMovil varchar(45),
+                                telefonoCasa varchar(45),
+                                email varchar(45)
+	)
 
 	BEGIN
 	
-		INSERT INTO Cliente VALUES (NULL, nombre, primerApellido, segundoApellido, edad, nombreUsuario, contrasenia, calle, colonia, pais, token);
+		INSERT INTO Cliente VALUES (
+        NULL, nombre, primerApellido, segundoApellido, edad, nombreUsuario, contrasenia, calle, colonia, pais, token, telefonoMovil, telefonoCasa, email);
     
 	END
 $$
@@ -56,4 +60,23 @@ BEGIN
 END $$
 DELIMITER ;
 
+DELIMITER $$
 
+CREATE PROCEDURE InsertarCompra (
+  IN idCompra INT,
+  IN cantidad INT,
+  IN precioUnitario DOUBLE,
+  IN latitud DOUBLE,
+  IN longitud DOUBLE,
+  IN idCarrito INT,
+  IN fecha VARCHAR(45),
+  IN idCliente INT,
+  IN idProducto INT
+)
+BEGIN
+  INSERT INTO compra (idCompra, cantidad, precioUnitario, latitud, longitud, idCarrito, fecha, idCliente, idProducto)
+  VALUES (idCompra, cantidad, precioUnitario, latitud, longitud, idCarrito, fecha, idCliente, idProducto);
+END
+
+$$
+DELIMITER ;
